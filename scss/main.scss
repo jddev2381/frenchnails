@@ -1,0 +1,789 @@
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap');
+
+
+// font-family: 'Open Sans', sans-serif; 400, 700
+// font-family: 'Oswald', sans-serif; 300, 400, 500
+// font-family: 'Playfair Display', serif; all italic 400, 500, 600
+
+
+
+
+
+
+strong {
+    font-weight:bold;
+}
+
+
+$danger: #7A0012;
+
+$blue: #5078F2;
+
+$bg: #242133;
+
+$userbox: #37334D;
+
+$white: #FFFFFF;
+
+$lightgrey: #999;
+
+$lines: #3d3855;
+
+$green: #4f5438;
+
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    background-color:$bg;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    line-height:1.3;
+    color:$white;
+}
+
+.forbidden {
+    //color:$danger;
+    background-color:$danger;
+    width:100%;
+    max-width:1200px;
+    padding:50px;
+    margin:0 auto;
+    border-radius:5px;
+    margin-top:-200px;
+    box-shadow:0px 0px 30px rgba(0, 0, 0, 0.5);
+    h2 {
+        font-weight:bold;
+        text-align:center;
+        padding-bottom:30px;
+        font-size:32px;
+    }
+    h3 {
+        font-weight:bold;
+        text-align:center;
+        font-size:24px;
+    }
+    p {
+        text-align:center;
+        font-size:18px;
+        margin-top:30px;
+    }
+}
+header.main {
+    font-family: 'Playfair Display', serif;
+    padding:25px;
+    h1 {
+        font-weight:400;
+        font-size:48px;
+        text-align:center;
+        letter-spacing:1px;
+    }
+}
+
+div.content {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    width:100%;
+    max-width:1100px;
+    //border:1px solid white;
+    margin:0 auto;
+    min-height:250px;
+    margin-top:50px;
+
+    div.queue {
+        width:250px;
+        //border:1px solid blue;
+        min-height:330px;
+        h2 {
+            text-align:center;
+            //font-weight:700;
+            font-size:32px;
+            margin-bottom:15px;
+            font-family: 'Oswald', sans-serif;
+            font-weight:300;
+        }
+        .user-box {
+            background-color:$userbox;
+            height:250px;
+            width:250px;
+            border-radius:5px;
+            margin-bottom:20px;
+            padding:15px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-around;
+            align-items:center;
+            p.name {
+                font-size:72px;
+                font-family: 'Playfair Display', serif;
+                font-weight:600;
+            }
+            p.time {
+                font-size:15px;
+                color:$lightgrey;
+                span {
+                    font-size:15px;
+                    color:$lightgrey;
+                }
+            }
+        }
+    }
+    div.time {
+        width:300px;
+        text-align:center;
+        //border:1px solid red;
+        //margin-left:100px;
+        line-height:1;
+        margin-top:25px;
+        h2 {
+            text-align:center;
+            font-size:12px;
+            //margin-top:50px;
+            margin-bottom:0px;
+            color:$lightgrey;
+        }
+        span.current-time {
+            font-weight:700;
+            font-size:52px;
+            color:$white;
+        }
+        h3 {
+            margin-top:35px;
+            font-size:16px;
+            color:$lightgrey;
+            span {
+                font-weight:bold;
+                font-size:42px;
+                color:$white;
+            }
+        }
+        h4 {
+           margin-top:35px;
+            font-size:16px;
+            color:$lightgrey;
+            span.white {
+                color:white;
+            } 
+        }
+    }
+    div.actions {
+        width:250px;
+        margin-top:25px;
+        //border:1px solid yellow;
+        a {
+            display:block;
+            //margin-top:30px;
+            width:100%;
+            padding:15px;
+            text-align:center;
+            text-decoration:none !important;
+            color:$white;
+            border-radius:5px;
+            //font-weight:bold;
+            font-size:24px;
+            text-transform:uppercase;
+            font-family: 'Oswald', sans-serif;
+            font-weight:500;
+            transition:all 0.3s;
+            .icon {
+                margin-left:10px;
+            }
+            &:hover {
+                transform:scale(1.2);
+            }
+        }
+        a.check-in {
+            background-color:$blue;
+            //margin-top:130px;
+        }
+        a.check-out {
+            background-color:$danger;
+            margin-top:35px;
+        }
+    }
+}
+
+div.other-queue {
+    margin:0 auto;
+    margin-top:50px;
+    width:100%;
+    max-width:1100px;
+    color:$lightgrey;
+    h2 {
+        font-size:36px;
+        margin-bottom:20px;
+        color:$white;
+        font-family: 'Oswald', sans-serif;
+        font-weight:300;
+    }
+    .user-box {
+        display:flex;
+        width:100%;
+        border-bottom:1px dotted $lines;
+        font-size:16px;
+        p {
+            width:40%;
+            padding:10px 15px;
+        }
+        p.text-center {
+            width:20%; //hacky
+        }
+    }
+    .user-box.th {
+        font-weight:bold;
+        border-top:1px solid $lines;
+        color: $green;
+        font-size:20px;
+    }
+    p.time {
+        text-align:center;
+    }
+}
+
+
+.text-center {
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+.checkin {
+    width:100%;
+    margin:0 auto;
+    margin-top:50px;
+    max-width:800px;
+
+    h2 {
+        margin-bottom:50px;
+        color:$white;
+        font-family: 'Oswald', sans-serif;
+        font-weight:300;
+        font-size:32px;
+    }
+
+    .form-group {
+        img {
+            display:block;
+            margin:0 auto;
+            width:100%;
+            height:auto;
+            max-width:100px;
+        }
+    }
+}
+
+
+.flexed {
+    display:flex;
+    justify-content:space-between;
+    .form-group {
+        width:45%;
+    }
+    
+}
+
+.mb-50 {
+    margin-bottom:50px;
+}
+
+input, select {
+    display:block;
+    width:100%;
+    padding:8px;
+    background-color:transparent;
+    border:none !important;
+    outline:none !important;
+    border-bottom:1px solid $lines !important;
+    margin-bottom:4px;
+    color:$white;
+    font-size:22px;
+    text-align:center;
+    text-align-last:center;
+}
+
+
+label {
+    font-family: 'Oswald', sans-serif;
+    font-weight:300;
+    font-size:17px;
+    color:$lightgrey;
+    padding:1px 8px;
+    display:block;
+    text-align:center;
+}
+
+
+form {
+    a, button {
+        display:block;
+        margin-bottom:20px;
+        width:250px;
+        text-align:center;
+        padding:12px;
+        color:$white;
+        font-family: 'Oswald', sans-serif;
+        font-weight:500;
+        font-size:22px;
+        border:none !important;
+        outline:none !important;
+        border-radius:5px;
+        text-decoration:none !important;
+        transition:all 0.3s;
+        &:hover {
+            transform:scale(1.2);
+            cursor:pointer;
+        }
+        .icon {
+            margin-left:15px;
+        }
+    }
+    button {
+        background-color:$blue;
+    }
+    a {
+        background-color:$danger;
+    }
+}
+
+
+.disabled {
+    opacity:0.2 !important;
+    &:hover {
+        transform:scale(1) !important;
+    }
+}
+
+div.errors {
+    color:$danger;
+    font-weight:bold;
+    font-size:24px;
+}
+p.error {
+    color:$danger;
+    font-weight:300;
+    font-size:15px;
+    text-align:center;
+}
+
+
+div.flash-message {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(0, 0, 0, 0.8);
+    color:$white;
+    div.message-wrapper {
+        width:100%;
+        max-width:600px;
+        padding:35px 15px;
+        border-radius:5px;
+        text-align:center;
+        h1 {
+            font-size:32px;
+            margin-bottom:10px;
+        }
+        h2 {
+            font-size:30px;
+            margin-bottom:20px;
+        }
+        h3 {
+            font-size:20px;
+
+        }
+    }
+}
+div.flash-message.success {
+    
+    background-color:$blue;
+    
+}
+div.flash-message.error {
+    background-color:$danger;
+}
+
+
+a.dismiss-button {
+    display:inline-block;
+    margin-top:50px;
+    padding:15px 50px;
+    background-color:white;
+    color:$green;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all 0.3s;
+    &:hover {
+        transform:scale(1.2);
+    }
+    .icon {
+        margin-left:10px;
+    }
+}
+
+
+
+a.back-button {
+    position:fixed;
+    top:25px;
+    left:35px;
+    font-size:100px;
+    color:$white;
+    text-decoration:none !important;
+    transition:all 0.3s;
+    &:hover {
+        color:$blue;
+        transform:scale(1.1);
+    }
+}
+
+
+.cancel-multis {
+    h2, h3 {
+        font-family: 'Open Sans', sans-serif;
+        margin:0px;
+        padding:0px;
+        font-weight:400;
+        text-align:center;
+        font-size:26px;
+    }
+}
+.other-queue.centered {
+    .user-box {
+        align-items:center;
+    }
+}
+.or {
+    font-size:36px;
+    font-weight:bold;
+    text-align:center;
+}
+.mb-25 {
+    margin-bottom:25px !important;
+}
+a.table-btn {
+    display:inline-block;
+    background-color:$danger;
+    color:$white;
+    text-decoration:none !important;
+    padding:10px 25px;
+    border-radius:5px;
+    font-size:16px;
+    transition:all 0.3s;
+    &:hover {
+        transform:scale(1.1);
+    }
+}
+
+.full-cancel-btn {
+    display:block;
+    background-color:$danger;
+    color:$white;
+    text-decoration:none !important;
+    padding:15px;
+    text-align:center;
+    width:100%;
+    border-radius:5px;
+    font-size:22px;
+    font-weight:bold;
+    text-transform:uppercase;
+    transition:all 0.3s;
+    &:hover {
+        transform:scale(1.1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* The container */
+.check-container {
+    display: block;
+    position: relative;
+    padding-left: 65px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:white;
+    //text-align:left !important;
+    .icon {
+        font-size:75px;
+    }
+}
+
+/* Hide the browser's default checkbox */
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  text-align:left;
+}
+
+/* Create a custom checkbox */
+.check-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 55px;
+  width: 55px;
+  background-color: transparent;
+}
+
+/* On mouse-over, add a grey background color */
+.check-container:hover input ~ .checkmark {
+  background-color: transparent;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .checkmark {
+  background-color: transparent;
+  color:$blue;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.check-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid $blue;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  //text-align:left;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #1c1927;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #13111b;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background-color: $blue;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+.hand-stuff, .feet-stuff {
+    width:45%;
+    //border:1px solid red;
+    .form-group {
+        width:100% !important;
+    }
+}
+
+select option {
+    color:$bg;
+}
+
+
+
+
+#hands-1, #hands-21, #hands-22, #feet-1, #feet-21, #feet-22 {
+    display:none;
+}
+
+
+
+.fadeIn {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
