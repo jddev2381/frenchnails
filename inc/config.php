@@ -17,10 +17,10 @@ define('SEND_EMAIL_TO', 'jd@huntingtonwebsolutions.com');
 // DB Params
 define('DB_HOST', 	'localhost');
 
-//define('DB_USER', 	'frenchNailsUser2');
+
 define('DB_USER', 	'root');
 
-//define('DB_PASS', 	'-A-+$pU0Ns}Z');
+
 define('DB_PASS', 	'123456');
 
 //define('DB_NAME', 	'frenchNails');
